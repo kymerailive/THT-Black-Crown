@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Black Crown — The Hollow Tide</title>
+<style>
+:root{--bg:#0b1520;--bg2:#0f1e2d;--panel:#122335;--line:#1e3a52;--text:#d8e6f0;
+--dim:#8aa5b8;--head:#f0f7fc;--sea:#4fd1c5;--sand:#e8c47c;--coral:#ff7d6b;
+--shadow:0 8px 30px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#14293d 0%,var(--bg) 55%);
+color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+#gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.gatecard{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+box-shadow:var(--shadow);padding:40px 36px;max-width:430px;width:100%;text-align:center}
+.gatecard h1{margin:.2em 0 .1em;font-size:1.4rem;color:var(--head)}
+.gatecard p{color:var(--dim);font-size:.95rem;margin:.4em 0 1.4em}
+.gatecard input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);
+background:var(--bg2);color:var(--text);font-size:1rem;text-align:center;letter-spacing:.06em}
+.gatecard button{margin-top:14px;width:100%;padding:12px;border:0;border-radius:10px;cursor:pointer;
+background:linear-gradient(135deg,#2b8f86,#4fd1c5);color:#05201d;font-weight:700;font-size:1rem}
+.gatecard .err{color:var(--coral);font-size:.9rem;min-height:1.3em;margin-top:10px}
+#app{display:none;max-width:980px;margin:0 auto;padding:0 20px 120px}
+header.top{position:sticky;top:0;z-index:5;background:rgba(11,21,32,.92);backdrop-filter:blur(8px);
+border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.brand{font-weight:800;color:var(--head)}
+.brand .tide{color:var(--sea)}
+.tabbtn{padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;
+color:var(--dim);cursor:pointer;font-weight:600}
+.tabbtn.on{background:var(--sea);border-color:var(--sea);color:#05201d}
+.updated{margin-left:auto;color:var(--dim);font-size:.8rem}
+h1{color:var(--head);font-size:2rem;margin:.9em 0 .2em}
+.stat{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+padding:14px 22px;margin:8px 12px 8px 0}
+.stat .v{font-size:1.5rem;color:var(--sand);font-weight:800}
+.stat .k{color:var(--dim);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase}
+.pcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+.pcard h2{margin:.1em 0 .2em;color:var(--head)}
+.pmeta{color:var(--dim);font-size:.86rem;margin-bottom:8px}
+.pmeta b{color:var(--sand)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6em 0}
+th{background:#16334b;color:var(--head);text-align:left;padding:8px 12px}
+td{padding:7px 12px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(odd){background:rgba(255,255,255,.02)}
+.muted{color:var(--dim)}
+</style></head><body>
+<div id="gate"><div class="gatecard">
+  <h1>Black Crown</h1>
+  <p>The Hollow Tide — team site. Enter your team's passcode.</p>
+  <input id="pw" type="password" autocomplete="off" placeholder="passcode">
+  <button id="go">Open</button>
+  <div class="err" id="err"></div>
+</div></div>
+<div id="app">
+  <header class="top">
+    <span class="brand">Black Crown <span class="tide">· The Hollow Tide</span></span>
+    <button class="tabbtn on" data-t="team" onclick="pick('team')">Team</button>
+    <button class="tabbtn" data-t="players" onclick="pick('players')">Players</button>
+    <span class="updated" id="updated"></span>
+  </header>
+  <div id="main"></div>
+</div>
+<script>
+const ENC={salt:"41EyqLgRBLyP+Iwh30mE5g==",iv:"3nKaRoOGphjpqfvU",ct:"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",iter:310000};
+let DATA=null;
+const b64buf=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function unlock(){
+  const pw=document.getElementById('pw').value.replace(/\s+/g,'').toLowerCase();
+  const err=document.getElementById('err');
+  if(!pw){err.textContent='Enter the passcode.';return}
+  err.textContent='';
+  try{
+    const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+    const key=await crypto.subtle.deriveKey(
+      {name:'PBKDF2',salt:b64buf(ENC.salt),iterations:ENC.iter,hash:'SHA-256'},
+      km,{name:'AES-GCM',length:256},false,['decrypt']);
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64buf(ENC.iv)},key,b64buf(ENC.ct));
+    DATA=JSON.parse(new TextDecoder().decode(pt));
+  }catch(e){err.textContent='That passcode does not open this tide.';return}
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+  render();
+}
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=n=>'$'+Number(n||0).toLocaleString();
+let tab='team';
+function pick(t){tab=t;render()}
+function render(){
+  document.querySelectorAll('.tabbtn').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
+  document.getElementById('updated').textContent='updated '+DATA.updated;
+  const m=document.getElementById('main');
+  if(tab==='team'){
+    const roster=DATA.players.map(p=>`<tr><td><b>${esc(p.name)}</b></td>
+      <td class="muted">${esc(p.pronouns)}</td><td>${esc(p.label)}</td>
+      <td class="muted">${esc((p.titles||[]).join(', '))}</td></tr>`).join('');
+    const stash=DATA.stash.length?DATA.stash.map(i=>`<tr><td>${esc(i.name)}</td>
+      <td>×${i.qty}</td><td class="muted">${esc(i.desc||'')}</td></tr>`).join('')
+      :'<tr><td colspan="3" class="muted">The stash is empty.</td></tr>';
+    m.innerHTML=`<h1>${esc(DATA.team)}</h1>
+      <div><span class="stat"><div class="v">${money(DATA.treasury)}</div><div class="k">Team Bank</div></span>
+      <span class="stat"><div class="v">${DATA.players.length}</div><div class="k">Players</div></span>
+      <span class="stat"><div class="v">${DATA.stash.length}</div><div class="k">Stash items</div></span></div>
+      <h2>Roster</h2><table><thead><tr><th>Name</th><th>Pronouns</th><th>Label</th><th>Titles</th></tr></thead>
+      <tbody>${roster}</tbody></table>
+      <h2>Team stash</h2><table><thead><tr><th>Item</th><th>Qty</th><th>About</th></tr></thead>
+      <tbody>${stash}</tbody></table>`;
+  }else{
+    m.innerHTML='<h1>Players</h1>'+DATA.players.map(p=>{
+      const sk=Object.entries(p.skills||{}).filter(e=>e[1]>0)
+        .map(e=>e[0].charAt(0).toUpperCase()+e[0].slice(1)+' '+(['','I','II','III','IV','V'][e[1]]||e[1])).join(' · ');
+      const inv=(p.inventory||[]).map(i=>`<tr><td>${esc(i.name)}</td><td>×${i.qty}</td>
+        <td class="muted">${esc(i.desc||'')}</td></tr>`).join('')
+        ||'<tr><td colspan="3" class="muted">Empty bag.</td></tr>';
+      return `<div class="pcard"><h2>${esc(p.name)}</h2>
+        <div class="pmeta">${esc(p.pronouns)}${p.pronouns?' · ':''}<b>${esc(p.label)}</b>
+        ${p.affiliation?' · '+esc(p.affiliation):''}
+        ${(p.titles||[]).length?' · '+esc(p.titles.join(', ')):''}</div>
+        <div class="pmeta">💰 ${money(p.wallet)}${sk?' · 🎓 '+esc(sk):''}</div>
+        <table><thead><tr><th>Item</th><th>Qty</th><th>About</th></tr></thead><tbody>${inv}</tbody></table>
+        </div>`;}).join('');
+  }
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('go').onclick=unlock;
+  document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+});
+</script></body></html>
