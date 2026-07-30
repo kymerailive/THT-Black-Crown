@@ -4,45 +4,115 @@
 <meta name="robots" content="noindex">
 <title>Black Crown — The Hollow Tide</title>
 <style>
-:root{--bg:#0b1520;--bg2:#0f1e2d;--panel:#122335;--line:#1e3a52;--text:#d8e6f0;
---dim:#8aa5b8;--head:#f0f7fc;--sea:#4fd1c5;--sand:#e8c47c;--coral:#ff7d6b;
---shadow:0 8px 30px rgba(0,0,0,.45)}
+:root{--bg:#0a0c15;--bg2:#0e1120;--panel:#151928;--panel2:#1b2036;
+--line:#252b45;--line2:#303757;--text:#e9ecf8;--dim:#8f97b3;--faint:#646d8c;
+--head:#f4f6ff;--accent:#7c5cff;--accent2:#4dc3ff;--gold:#f0b34c;
+--coral:#ff6b81;--grad:linear-gradient(135deg,#7c5cff,#4dc3ff);
+--shadow:0 10px 34px rgba(0,0,0,.45)}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,#14293d 0%,var(--bg) 55%);
-color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{margin:0;color:var(--text);
+background:radial-gradient(1100px 640px at 85% -12%,#1b1f3d 0%,var(--bg) 55%),
+radial-gradient(900px 600px at -10% 110%,#141a35 0%,var(--bg) 60%),var(--bg);
+font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 #gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-.gatecard{background:var(--panel);border:1px solid var(--line);border-radius:16px;
-box-shadow:var(--shadow);padding:40px 36px;max-width:430px;width:100%;text-align:center}
+.gatecard{background:linear-gradient(180deg,var(--panel2),var(--panel));
+border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);
+padding:42px 36px;max-width:430px;width:100%;text-align:center}
 .gatecard h1{margin:.2em 0 .1em;font-size:1.4rem;color:var(--head)}
 .gatecard p{color:var(--dim);font-size:.95rem;margin:.4em 0 1.4em}
-.gatecard input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);
+.gatecard input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line2);
 background:var(--bg2);color:var(--text);font-size:1rem;text-align:center;letter-spacing:.06em}
-.gatecard button{margin-top:14px;width:100%;padding:12px;border:0;border-radius:10px;cursor:pointer;
-background:linear-gradient(135deg,#2b8f86,#4fd1c5);color:#05201d;font-weight:700;font-size:1rem}
+.gatecard input:focus{outline:none;border-color:var(--accent);
+box-shadow:0 0 0 3px rgba(124,92,255,.22)}
+.gatecard button{margin-top:14px;width:100%;padding:12px;border:0;border-radius:12px;
+cursor:pointer;background:var(--grad);color:#fff;font-weight:800;font-size:1rem;
+box-shadow:0 6px 18px rgba(124,92,255,.35)}
 .gatecard .err{color:var(--coral);font-size:.9rem;min-height:1.3em;margin-top:10px}
-#app{display:none;max-width:980px;margin:0 auto;padding:0 20px 120px}
-header.top{position:sticky;top:0;z-index:5;background:rgba(11,21,32,.92);backdrop-filter:blur(8px);
-border-bottom:1px solid var(--line);margin:0 -20px;padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#app{display:none;max-width:1020px;margin:0 auto;padding:0 20px 120px}
+header.top{position:sticky;top:0;z-index:5;background:rgba(10,12,21,.9);
+backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+margin:0 -20px;padding:12px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .brand{font-weight:800;color:var(--head)}
-.brand .tide{color:var(--sea)}
-.tabbtn{padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;
-color:var(--dim);cursor:pointer;font-weight:600}
-.tabbtn.on{background:var(--sea);border-color:var(--sea);color:#05201d}
+.brand .tide{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tabbtn{padding:7px 18px;border-radius:999px;border:1px solid var(--line2);background:transparent;
+color:var(--dim);cursor:pointer;font-weight:700;font-size:.92rem;transition:all .15s}
+.tabbtn:hover{color:var(--text);border-color:var(--faint)}
+.tabbtn.on{background:var(--grad);border-color:transparent;color:#fff;
+box-shadow:0 4px 14px rgba(124,92,255,.4)}
 .updated{margin-left:auto;color:var(--dim);font-size:.8rem}
-h1{color:var(--head);font-size:2rem;margin:.9em 0 .2em}
-.stat{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
-padding:14px 22px;margin:8px 12px 8px 0}
-.stat .v{font-size:1.5rem;color:var(--sand);font-weight:800}
-.stat .k{color:var(--dim);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase}
-.pcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
-.pcard h2{margin:.1em 0 .2em;color:var(--head)}
+h1{color:var(--head);font-size:1.9rem;margin:.9em 0 .2em}
+h2{color:var(--head)}
+.stat{display:inline-block;background:linear-gradient(180deg,var(--panel2),var(--panel));
+border:1px solid var(--line);border-radius:16px;padding:14px 24px;margin:8px 12px 8px 0;
+box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.stat .v{font-size:1.6rem;font-weight:800;background:var(--grad);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat.goldv .v{background:none;color:var(--gold)}
+.stat .k{color:var(--dim);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.pcard{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+border-radius:16px;padding:16px 20px;margin:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.pcard h2{margin:.1em 0 .2em}
 .pmeta{color:var(--dim);font-size:.86rem;margin-bottom:8px}
-.pmeta b{color:var(--sand)}
-table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6em 0}
-th{background:#16334b;color:var(--head);text-align:left;padding:8px 12px}
-td{padding:7px 12px;border-top:1px solid var(--line);vertical-align:top}
+.pmeta b{color:var(--gold)}
+.fsm{font-size:.85rem;font-weight:500}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin:.6em 0;border-radius:12px;overflow:hidden}
+th{background:var(--panel2);color:var(--dim);text-align:left;padding:9px 12px;
+font-size:.74rem;text-transform:uppercase;letter-spacing:.07em}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}
 tbody tr:nth-child(odd){background:rgba(255,255,255,.02)}
 .muted{color:var(--dim)}
+.hint{color:var(--faint);font-size:.82rem;line-height:1.5}
+/* ---- the base map ---- */
+.livetag{margin-left:10px;font-size:.78rem;color:var(--dim);white-space:nowrap}
+.livedot,.offdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:1px}
+.livedot{background:#5ce08a;box-shadow:0 0 8px #5ce08a;animation:lpulse 2.4s infinite}
+.offdot{background:var(--faint)}
+@keyframes lpulse{50%{opacity:.4}}
+.basedesc{color:var(--dim);font-size:.94rem;max-width:70ch}
+.bmapwrap{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+background:#0a0d18;box-shadow:0 8px 26px rgba(0,0,0,.4);margin:14px 0 6px;touch-action:manipulation}
+.bground{position:absolute;inset:0;background:
+radial-gradient(75% 68% at 50% 52%,#1d2445 0%,#161b34 52%,#10142a 78%,#0b0e1d 100%)}
+.bground::after{content:"";position:absolute;left:9%;top:9%;right:9%;bottom:9%;
+border:2px dashed rgba(124,92,255,.28);border-radius:50%}
+.boverlay{position:absolute;inset:0}
+.bhale{position:absolute;transform:translate(-50%,-50%);cursor:pointer;text-align:center;z-index:2}
+.bhale .hbox{width:46px;height:36px;margin:0 auto;border-radius:10px;display:flex;
+align-items:center;justify-content:center;font-size:17px;
+background:linear-gradient(160deg,#262e56,#1a2038);border:1px solid var(--line2);
+box-shadow:0 3px 10px rgba(0,0,0,.45);transition:all .15s}
+.bhale:hover .hbox{border-color:var(--accent);transform:translateY(-1px)}
+.bhale.sel .hbox{outline:2px solid var(--accent);box-shadow:0 0 14px rgba(124,92,255,.55)}
+.bhale .hlbl{margin-top:3px;font-size:10.5px;font-weight:700;color:var(--text);
+text-shadow:0 1px 4px #000,0 0 8px #000;white-space:nowrap}
+.bnpc{position:absolute;width:22px;height:22px;border-radius:50%;z-index:3;
+transform:translate(-50%,-50%);background:var(--grad);border:2px solid #fff;color:#fff;
+font-size:8.5px;font-weight:800;display:flex;align-items:center;justify-content:center;
+cursor:pointer;box-shadow:0 0 10px rgba(124,92,255,.55);user-select:none}
+.bnpc::after{content:"";position:absolute;inset:-2px;border-radius:50%;
+border:2px solid rgba(124,92,255,.8);animation:bping 2.6s ease-out infinite}
+@keyframes bping{0%{transform:scale(.6);opacity:.9}80%,100%{transform:scale(2);opacity:0}}
+.bnpc.sel{outline:2px solid #fff;box-shadow:0 0 16px rgba(77,195,255,.8)}
+.npcprof-head{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+.portrait{width:64px;height:64px;border-radius:14px;flex-shrink:0;display:flex;
+align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#fff;
+background:var(--grad);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.taskline{margin:10px 0 4px;font-size:.92rem}
+.taskline .k,.routine .k{display:inline-block;font-size:.7rem;font-weight:800;color:var(--accent2);
+text-transform:uppercase;letter-spacing:.09em;margin-right:8px}
+.routine{margin:10px 0 2px;font-size:.92rem}
+.routine ul{margin:6px 0 0;padding-left:20px;color:var(--dim)}
+.routine li{margin:2px 0}
+.moverow{display:flex;gap:8px;margin-top:12px}
+.moverow select{flex:1;padding:9px 10px;border-radius:10px;border:1px solid var(--line2);
+background:var(--bg2);color:var(--text);font:inherit}
+.gbtn{padding:9px 20px;border:0;border-radius:10px;background:var(--grad);color:#fff;
+font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,255,.35)}
+.gbtn:disabled{opacity:.55;cursor:default}
+.npclink{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--faint)}
+.npcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.npcgrid .pcard{margin:0}
 </style></head><body>
 <div id="gate"><div class="gatecard">
   <h1>Black Crown</h1>
@@ -63,8 +133,10 @@ tbody tr:nth-child(odd){background:rgba(255,255,255,.02)}
   <div id="main"></div>
 </div>
 <script>
-const ENC={salt:"pSRqcw9GSfFg/7t8DlqJyA==",iv:"lYKUv0FGXOuJLlWb",ct:"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",iter:310000};
-let DATA=null;
+const ENC={salt:"9ueLZELAaJM7fDzsIcSyNQ==",iv:"DION3pwaMBfXXdgK",ct:"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",iter:310000};
+let DATA=null,LIVE=null,liveOk=false,lastSig='',tab='team';
+let selHale=null,selNpc=null;
+const BLOBS={};
 const b64buf=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 async function unlock(){
   const pw=document.getElementById('pw').value.replace(/\s+/g,'').toLowerCase();
@@ -82,11 +154,150 @@ async function unlock(){
   document.getElementById('gate').style.display='none';
   document.getElementById('app').style.display='block';
   render();
+  startLive();
 }
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const money=n=>'$'+Number(n||0).toLocaleString();
-let tab='team';
-function pick(t){tab=t;render()}
+const initials=n=>String(n||'?').split(/\s+/).slice(0,2).map(w=>w[0]||'').join('').toUpperCase();
+/* ---- the live window: the bot's team API, token baked in this payload ---- */
+async function api(path,body){
+  if(!DATA.api||!DATA.token)throw new Error('no live link');
+  const r=await fetch(DATA.api+path,{method:body?'POST':'GET',
+    headers:{'Authorization':'Bearer '+DATA.token,
+             ...(body?{'Content-Type':'application/json'}:{})},
+    body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(j.error||('error '+r.status));
+  return j;
+}
+async function blobFor(path,key){
+  if(BLOBS[key]!==undefined)return BLOBS[key];
+  BLOBS[key]='';
+  try{
+    const r=await fetch(DATA.api+path,{headers:{'Authorization':'Bearer '+DATA.token}});
+    if(r.ok)BLOBS[key]=URL.createObjectURL(await r.blob());
+  }catch(e){}
+  return BLOBS[key];
+}
+function theBase(){return (liveOk&&LIVE&&LIVE.base)?LIVE.base:DATA.base}
+async function pollBase(){
+  if(!DATA.api||!DATA.token)return;
+  let changed=false;
+  try{
+    const j=await api('/api/team/base');
+    const sig=JSON.stringify(j);
+    changed=(sig!==lastSig)||!liveOk;
+    lastSig=sig;LIVE=j;liveOk=true;
+  }catch(e){changed=liveOk;LIVE=null;liveOk=false}
+  if(changed&&(tab==='base'||tab==='npcs'))render();
+}
+function startLive(){
+  if(!DATA.api||!DATA.token)return;
+  pollBase();
+  setInterval(()=>{if(!document.hidden)pollBase()},10000);
+}
+function pick(t){tab=t;selHale=null;selNpc=null;render();if(t==='base'||t==='npcs')pollBase()}
+/* ---- base map geometry (ring fallback = the bot's base_map_view math) ---- */
+function haleXY(h,i,n,cv){
+  if(typeof h.x==='number'&&typeof h.y==='number')return{x:h.x,y:h.y};
+  const a=-Math.PI/2+2*Math.PI*i/Math.max(1,n);
+  return{x:cv.w/2+cv.w*0.38*Math.cos(a),y:cv.h/2+cv.h*0.36*Math.sin(a)};
+}
+function liveTag(){
+  if(!DATA.token)return'';
+  return liveOk?'<span class="livetag"><span class="livedot"></span>live</span>'
+               :'<span class="livetag"><span class="offdot"></span>offline — last snapshot</span>';
+}
+function wirePortrait(el,c){
+  if(!el)return;
+  if(c.gif){el.innerHTML='<img src="'+esc(c.gif)+'" alt="">';return}
+  if(c.image&&liveOk)blobFor('/api/team/npc-image?key='+encodeURIComponent(c.key),'npc:'+c.key)
+    .then(u=>{if(u)el.innerHTML='<img src="'+u+'" alt="">'});
+}
+function npcCard(c,withMove){
+  const routine=(c.routine||[]).map(r=>'<li>'+esc(r)+'</li>').join('');
+  const move=(withMove&&liveOk)?`
+    <div class="moverow"><select class="mv-house">${(theBase().houses||[])
+      .map(h=>'<option '+(h.name===c.post?'selected':'')+'>'+esc(h.name)+'</option>').join('')}</select>
+    <button class="gbtn mv-go">Move</button></div>
+    <p class="hint">Tasks and routines are set by the devs — you can move your
+    NPC between hale, not rewrite their day.</p>`:'';
+  return `<div class="pcard npcprof" data-npc="${esc(c.key)}">
+    <div class="npcprof-head">
+      <div class="portrait">${esc(initials(c.name))}</div>
+      <div><h2>${esc(c.name)}</h2>
+        <div class="pmeta">${(c.titles||[]).length?esc(c.titles.join(', '))+' · ':''}${esc(c.affiliation||'')}</div>
+        <div class="pmeta">Post: <b>${esc(c.post||'—')}</b>${c.function?' <span class="muted">('+esc(c.function)+')</span>':''}</div>
+      </div></div>
+    ${c.task?'<div class="taskline"><span class="k">Current task</span>'+esc(c.task)+'</div>':''}
+    ${routine?'<div class="routine"><span class="k">Routine</span><ul>'+routine+'</ul></div>':''}
+    ${(!c.task&&!routine)?'<p class="muted fsm">No task or routine on record yet.</p>':''}
+    ${move}</div>`;
+}
+function wireNpcCard(root,c){
+  wirePortrait(root.querySelector('.portrait'),c);
+  const go=root.querySelector('.mv-go');
+  if(go)go.onclick=async()=>{
+    const house=root.querySelector('.mv-house').value;
+    go.disabled=true;go.textContent='Moving…';
+    try{await api('/api/team/base-npc',{npc:c.key,house});lastSig='';await pollBase()}
+    catch(e){alert(e.message);go.disabled=false;go.textContent='Move'}
+  };
+}
+function renderBase(m){
+  const b=theBase();
+  if(!b){m.innerHTML='<h1>Base</h1><p class="muted">No base on record for this team — yet.</p>';return}
+  const cv=b.canvas||{w:1200,h:800};
+  const pct=(v,a)=>(v/(a==='x'?cv.w:cv.h)*100)+'%';
+  const n=(b.houses||[]).length;
+  let marks='';
+  (b.houses||[]).forEach((h,i)=>{
+    const p=haleXY(h,i,n,cv);
+    marks+=`<div class="bhale${selHale===h.name?' sel':''}" data-hale="${esc(h.name)}"
+      style="left:${pct(p.x,'x')};top:${pct(p.y,'y')}">
+      <div class="hbox">⌂</div><div class="hlbl">${esc(h.name)}</div></div>`;
+    (h.npcs||[]).forEach((k,j)=>{
+      const c=(b.npcs||{})[k];if(!c)return;
+      const dx=p.x-26+(j%3)*26,dy=p.y+34+Math.floor(j/3)*26;
+      marks+=`<div class="bnpc${selNpc===k?' sel':''}" data-npc="${esc(k)}"
+        title="${esc(c.name)} — ${esc(h.name)}"
+        style="left:${pct(dx,'x')};top:${pct(dy,'y')}">${esc(initials(c.name))}</div>`;
+    });
+  });
+  m.innerHTML=`<h1>${esc(b.name)}</h1>
+    <div class="pmeta">${b.status?'📍 <b>'+esc(b.status)+'</b>':''}
+      ${b.steward?' · Steward: <b>'+esc(b.steward)+'</b>':''}${liveTag()}</div>
+    ${b.desc?'<p class="basedesc">'+esc(b.desc)+'</p>':''}
+    <div class="bmapwrap" style="aspect-ratio:${cv.w} / ${cv.h}">
+      <div class="bground" id="bground"></div>
+      <div class="boverlay">${marks}</div>
+    </div>
+    <p class="hint">Every glowing dot is one of your NPCs, live from the island —
+    tap a house or a dot for details.${liveOk?' You can move your NPCs between hale from their card.':''}</p>
+    <div id="bpanel"></div>`;
+  if(b.image&&liveOk)blobFor('/api/team/base-image','plan:'+(b.key||''))
+    .then(u=>{const g=document.getElementById('bground');
+      if(u&&g)g.style.cssText='background:url('+u+') center/cover no-repeat'});
+  m.querySelectorAll('.bhale').forEach(el=>el.onclick=()=>{
+    selHale=el.dataset.hale===selHale?null:el.dataset.hale;selNpc=null;render()});
+  m.querySelectorAll('.bnpc').forEach(el=>el.onclick=e=>{e.stopPropagation();
+    selNpc=el.dataset.npc===selNpc?null:el.dataset.npc;selHale=null;render()});
+  const box=m.querySelector('#bpanel');
+  if(selNpc){
+    const c=(b.npcs||{})[selNpc];
+    if(c){box.innerHTML=npcCard(c,true);wireNpcCard(box.firstElementChild,c)}
+  }else if(selHale){
+    const h=(b.houses||[]).find(x=>x.name===selHale);
+    if(h){box.innerHTML=`<div class="pcard"><h2>${esc(h.name)}${h.function?' <span class="muted fsm">— '+esc(h.function)+'</span>':''}</h2>
+      ${(h.npcs||[]).length?'<div class="pmeta">'+h.npcs.map(k=>{const c=(b.npcs||{})[k];
+        return '<a href="#" class="npclink" data-npc="'+esc(k)+'"><b>'+esc(c?c.name:k)+'</b></a>'}).join(' · ')+'</div>'
+        :'<div class="pmeta muted">No one stationed here right now.</div>'}
+      ${h.staff?'<div class="pmeta muted">Also: '+esc(h.staff)+'</div>':''}</div>`;
+      box.querySelectorAll('.npclink').forEach(a=>a.onclick=e=>{e.preventDefault();
+        selNpc=a.dataset.npc;selHale=null;render()});
+    }
+  }
+}
 function render(){
   document.querySelectorAll('.tabbtn').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
   document.getElementById('updated').textContent='updated '+DATA.updated;
@@ -99,7 +310,7 @@ function render(){
       <td>×${i.qty}</td><td class="muted">${esc(i.desc||'')}</td></tr>`).join('')
       :'<tr><td colspan="3" class="muted">The stash is empty.</td></tr>';
     m.innerHTML=`<h1>${esc(DATA.team)}</h1>
-      <div><span class="stat"><div class="v">${money(DATA.treasury)}</div><div class="k">Team Bank</div></span>
+      <div><span class="stat goldv"><div class="v">${money(DATA.treasury)}</div><div class="k">Team Bank</div></span>
       <span class="stat"><div class="v">${DATA.players.length}</div><div class="k">Players</div></span>
       <span class="stat"><div class="v">${DATA.stash.length}</div><div class="k">Stash items</div></span></div>
       <h2>Roster</h2><table><thead><tr><th>Name</th><th>Pronouns</th><th>Label</th><th>Titles</th></tr></thead>
@@ -107,29 +318,22 @@ function render(){
       <h2>Team stash</h2><table><thead><tr><th>Item</th><th>Qty</th><th>About</th></tr></thead>
       <tbody>${stash}</tbody></table>`;
   }else if(tab==='base'){
-    const b=DATA.base;
-    if(!b){m.innerHTML='<h1>Base</h1><p class="muted">No base on record for this team — yet.</p>';return}
-    const hales=(b.houses||[]).map(h=>`<div class="pcard">
-      <h2>${esc(h.name)}${h.function?' <span class="muted" style="font-size:.85rem">— '+esc(h.function)+'</span>':''}</h2>
-      ${(h.npcs||[]).length?'<div class="pmeta">'+h.npcs.map(n=>'<b>'+esc(n)+'</b>').join(' · ')+'</div>':''}
-      ${h.staff?'<div class="pmeta muted">Also: '+esc(h.staff)+'</div>':''}
-    </div>`).join('');
-    m.innerHTML=`<h1>${esc(b.name)}</h1>
-      ${b.status?`<div class="pmeta">📍 <b>${esc(b.status)}</b></div>`:''}
-      ${b.steward?`<div class="pmeta">Steward: <b>${esc(b.steward)}</b></div>`:''}
-      ${b.desc?`<p>${esc(b.desc)}</p>`:''}
-      <h2>The hale</h2>${hales||'<p class="muted">No houses recorded.</p>'}`;
+    renderBase(m);
   }else if(tab==='npcs'){
-    if(!(DATA.npcs||[]).length){
-      m.innerHTML='<h1>NPCs</h1><p class="muted">No NPCs on record for this team — yet.</p>';return}
-    m.innerHTML='<h1>NPCs</h1>'+DATA.npcs.map(n=>`<div class="pcard">
-      <h2>${esc(n.name)}</h2>
-      <div class="pmeta">${(n.titles||[]).length?esc(n.titles.join(', '))+' · ':''}
-        ${n.affiliation?esc(n.affiliation)+' · ':''}
-        Post: <b>${esc(n.post)}</b>${n.function?' ('+esc(n.function)+')':''}</div>
-      ${n.gif?`<img src="${esc(n.gif)}" alt="" loading="lazy"
-        style="max-height:120px;border-radius:8px;margin-top:6px">`:''}
-    </div>`).join('');
+    const b=theBase();
+    const cards=b?Object.values(b.npcs||{}).sort((a,c)=>a.name.localeCompare(c.name)):[];
+    if(!cards.length){
+      m.innerHTML='<h1>NPCs</h1><p class="muted">No NPCs stationed at your base — yet.</p>';return}
+    m.innerHTML=`<h1>NPCs <span class="fsm muted">— stationed at ${esc(b.name)}</span>${liveTag()}</h1>
+      <div class="npcgrid">${cards.map(c=>npcCard(c,false)).join('')}</div>`;
+    m.querySelectorAll('.npcprof').forEach(el=>{
+      const c=(b.npcs||{})[el.dataset.npc];
+      if(c){wireNpcCard(el,c);
+        el.style.cursor='pointer';
+        el.onclick=e=>{if(e.target.closest('.mv-go,.mv-house,a'))return;
+          tab='base';selNpc=c.key;selHale=null;render();
+          document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x.dataset.t==='base'))};
+      }});
   }else{
     m.innerHTML='<h1>Players</h1>'+DATA.players.map(p=>{
       const sk=Object.entries(p.skills||{}).filter(e=>e[1]>0)
