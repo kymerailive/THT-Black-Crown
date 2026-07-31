@@ -113,6 +113,21 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
 .npclink{color:var(--text);text-decoration:none;border-bottom:1px dotted var(--faint)}
 .npcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .npcgrid .pcard{margin:0}
+
+/* ---- the forge ---- */
+.pcard label{display:block;margin:12px 0 4px;font-size:13px;color:#9fb0c9}
+.pcard input[type=text],.pcard select,.pcard textarea{
+  width:100%;box-sizing:border-box;padding:9px 11px;border-radius:9px;
+  background:#0d1420;border:1px solid #24344b;color:#e8eef7;
+  font:inherit;font-size:14px}
+.pcard textarea{resize:vertical;min-height:64px}
+.pcard input:focus,.pcard select:focus,.pcard textarea:focus{
+  outline:none;border-color:#4d7fb8}
+#f-send{margin-top:14px;padding:11px 20px;min-height:44px;border-radius:10px;
+  border:none;background:#2f6f4f;color:#fff;font:inherit;font-size:14px;
+  font-weight:600;cursor:pointer}
+#f-send:disabled{opacity:.6;cursor:default}
+.ok{margin-top:10px;color:#6ee7a8;font-size:13px}
 </style></head><body>
 <div id="gate"><div class="gatecard">
   <h1>Black Crown</h1>
@@ -128,12 +143,14 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
     <button class="tabbtn" data-t="players" onclick="pick('players')">Players</button>
     <button class="tabbtn" data-t="base" onclick="pick('base')">Base</button>
     <button class="tabbtn" data-t="npcs" onclick="pick('npcs')">NPCs</button>
+    <button class="tabbtn" data-t="forge" id="forgetab" style="display:none"
+            onclick="pick('forge')">Forge</button>
     <span class="updated" id="updated"></span>
   </header>
   <div id="main"></div>
 </div>
 <script>
-const ENC={salt:"9ueLZELAaJM7fDzsIcSyNQ==",iv:"DION3pwaMBfXXdgK",ct:"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",iter:310000};
+const ENC={salt:"+bHSyC0aiuTupTJadzmxVA==",iv:"o1AjJHSib2MpU7bj",ct:"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",iter:310000};
 let DATA=null,LIVE=null,liveOk=false,lastSig='',tab='team';
 let selHale=null,selNpc=null;
 const BLOBS={};
@@ -153,6 +170,9 @@ async function unlock(){
   }catch(e){err.textContent='That passcode does not open this tide.';return}
   document.getElementById('gate').style.display='none';
   document.getElementById('app').style.display='block';
+  // The Forge tab exists only for a team that has dealt with Kawelo. Teams who
+  // haven't never see it — the forge is earned in fiction, not advertised.
+  if((DATA.forge||{}).unlocked)document.getElementById('forgetab').style.display='';
   render();
   startLive();
 }
@@ -334,6 +354,8 @@ function render(){
           tab='base';selNpc=c.key;selHale=null;render();
           document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x.dataset.t==='base'))};
       }});
+  }else if(tab==='forge'){
+    m.innerHTML='<h1>The Forge</h1>'+forgeForm();
   }else{
     m.innerHTML='<h1>Players</h1>'+DATA.players.map(p=>{
       const sk=Object.entries(p.skills||{}).filter(e=>e[1]>0)
@@ -348,6 +370,70 @@ function render(){
         <div class="pmeta">💰 ${money(p.wallet)}${sk?' · 🎓 '+esc(sk):''}</div>
         <table><thead><tr><th>Item</th><th>Qty</th><th>About</th></tr></thead><tbody>${inv}</tbody></table>
         </div>`;}).join('');
+  }
+}
+
+/* ---- the forge ----
+   Buy a card from Kawelo, author the NPC here, a dev rules on it. The form
+   shows only the fields that card pays for, and only the jobs still open. */
+function forgeRarity(){
+  const s=document.getElementById('f-rarity');
+  return s?s.value:'common';
+}
+function forgeForm(){
+  const F=DATA.forge||{}, r=forgeRarity();
+  const fields=(F.fields||{})[r]||[];
+  const jobs=(F.jobs||[]).filter(j=>r==='special'||
+      (F.tiers||[]).indexOf(j.tier)<=(F.tiers||[]).indexOf(r));
+  const rows=fields.map(f=>{
+    if(f==='job'){
+      const opts=jobs.map(j=>`<option value="${esc(j.title)}">${esc(j.title)}`
+        +` — ${esc(j.tier)}${j.left!==null&&j.left!==undefined?' ('+j.left+' left)':''}`
+        +`</option>`).join('');
+      return `<label>${esc((F.prompts||{}).job||'Job')}
+        <select id="f-job">${opts||'<option value="">no posts open</option>'}</select></label>`;
+    }
+    const big=['personality','voice','backstory','goal','ability','trait'].indexOf(f)>=0;
+    const p=esc((F.prompts||{})[f]||f);
+    return big?`<label>${p}<textarea id="f-${f}" rows="3"></textarea></label>`
+              :`<label>${p}<input id="f-${f}" type="text"></label>`;
+  }).join('');
+  const face=(F.portrait||[]).indexOf(r)>=0
+    ? `<p class="muted">This card lets you choose their face — hand the picture
+       to a dev when they approve.</p>`
+    : `<p class="muted">The card picks their face from the pool.</p>`;
+  return `<div class="pcard"><h2>Forge an NPC</h2>
+    <p class="muted">${esc((F.blurb||{})[r]||'')}</p>
+    <label>Which card are you spending?
+      <select id="f-rarity" onchange="render()">
+        ${['common','uncommon','rare','legendary','special'].map(x=>
+          `<option value="${x}"${x===r?' selected':''}>${x}</option>`).join('')}
+      </select></label>
+    <label>Your player name<input id="f-player" type="text"
+      placeholder="so the dev knows whose card to take"></label>
+    ${rows}${face}
+    <button id="f-send" onclick="forgeSend()">Send to the devs</button>
+    <div class="err" id="f-err"></div></div>`;
+}
+async function forgeSend(){
+  const F=DATA.forge||{}, r=forgeRarity();
+  const err=document.getElementById('f-err');
+  const body={rarity:r,player:(document.getElementById('f-player')||{}).value||''};
+  ((F.fields||{})[r]||[]).forEach(f=>{
+    const el=document.getElementById('f-'+f);
+    if(el)body[f]=el.value;
+  });
+  body.portrait=(F.portrait||[]).indexOf(r)>=0;
+  const btn=document.getElementById('f-send');
+  if(btn){btn.disabled=true;btn.textContent='Sending…';}
+  try{
+    await api('/api/team/forge-submit',body);
+    err.className='ok';
+    err.textContent='Sent. A dev will confirm your card and make them real.';
+  }catch(e){
+    err.className='err';
+    err.textContent=e.message;
+    if(btn){btn.disabled=false;btn.textContent='Send to the devs';}
   }
 }
 document.addEventListener('DOMContentLoaded',()=>{
