@@ -114,6 +114,57 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
 .npcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
 .npcgrid .pcard{margin:0}
 
+/* ---- NPC detail: blurb, health, abilities ---- */
+.npcblurb{margin:10px 0 2px;font-size:14px;line-height:1.55;color:#c7d4e6}
+.forgeline{margin-top:2px}
+.vitals{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;
+  padding-top:12px;border-top:1px solid #1e2c40}
+.vitals .k{display:block;font-size:11px;letter-spacing:.5px;
+  text-transform:uppercase;color:#7f92ad;margin-bottom:4px}
+.vitals .hp b{font-size:22px;color:#6ee7a8}
+.vitals .abils{flex:1 1 260px}
+.vitals .abils ul{margin:0;padding-left:18px}
+.vitals .abils li{margin-bottom:6px;font-size:13.5px;line-height:1.45}
+.dmg{margin-left:6px;padding:1px 7px;border-radius:7px;background:#2a1b1b;
+  border:1px solid #4b2b2b;color:#e79a9a;font-size:12px}
+
+/* ---- portrait upload (rare and above) ---- */
+.facerow{margin-top:12px;padding-top:12px;border-top:1px solid #1e2c40}
+.facelab{display:block;font-size:12px;color:#9fb0c9;margin-bottom:7px}
+.fc-file{display:block;margin-top:5px;font:inherit;font-size:12.5px;
+  color:#c7d4e6;max-width:100%}
+.fc-file::file-selector-button{margin-right:9px;padding:7px 12px;
+  border-radius:8px;border:1px solid #24344b;background:#131c2b;
+  color:#c7d4e6;font:inherit;font-size:12.5px;cursor:pointer}
+.fc-go{min-height:40px;padding:8px 18px}
+.fc-msg{margin-top:7px;font-size:12.5px}
+.fc-msg.ok{color:#6ee7a8}
+.fc-msg.err{color:#e79a9a}
+
+/* ---- squads (inside the NPCs tab) ---- */
+.muster{margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid #1e2c40}
+.muster>h2:first-child{margin-top:0}
+.squad h2{display:flex;align-items:center;gap:10px}
+.linkbtn{background:none;border:0;padding:0;color:#8fa6c4;font:inherit;
+  font-size:12.5px;text-decoration:underline;cursor:pointer}
+.linkbtn:hover{color:#c7d4e6}
+.sqtag{display:inline-block;padding:1px 9px;border-radius:8px;font-size:12px;
+  margin-right:6px;border:1px solid #24344b;background:#131c2b}
+.sqtag.walking{color:#e7c98a;border-color:#4b3f2b}
+.sqtag.queued{color:#9fb0c9}
+.sqtag.home{color:#6ee7a8;border-color:#2b4b3a}
+.sqtab{width:100%;margin:10px 0 4px}
+.sqtab td{padding:6px 8px 6px 0;vertical-align:middle;border-bottom:1px solid #16202f}
+.sqtab select{padding:6px 8px;border-radius:8px;background:#0d1420;
+  border:1px solid #24344b;color:#e8eef7;font:inherit;font-size:13px}
+.sqadd,.sqsend{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.sqadd select,.sqsend select{padding:8px 10px;border-radius:9px;background:#0d1420;
+  border:1px solid #24344b;color:#e8eef7;font:inherit;font-size:13px;max-width:100%}
+.whorow{display:block;margin:0 0 14px;font-size:13px;color:#9fb0c9}
+.whorow input{width:100%;max-width:320px;box-sizing:border-box;padding:9px 11px;
+  border-radius:9px;background:#0d1420;border:1px solid #24344b;color:#e8eef7;
+  font:inherit;font-size:14px;display:block;margin-top:5px}
+
 /* ---- the forge ---- */
 .pcard label{display:block;margin:12px 0 4px;font-size:13px;color:#9fb0c9}
 .pcard input[type=text],.pcard select,.pcard textarea{
@@ -150,7 +201,7 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
   <div id="main"></div>
 </div>
 <script>
-const ENC={salt:"+bHSyC0aiuTupTJadzmxVA==",iv:"o1AjJHSib2MpU7bj",ct:"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",iter:310000};
+const ENC={salt:"FOXOV0XbC9tix6gWR+aUZw==",iv:"eC65w7iUWk2nMTHd",ct:"VqD6Zr3wo12JHPhVaeI7zco1Fb1/U0uiFdMDZb3GCojg/tYvs0e8rDwfSX24inFWeqFjTh+Zl7sxEVLogfy15Tzuw4df/Er6JKHlFAdrW6iVsD3oF/Inl3RawqsYPlWWjwTDZCKEHCqvvJ9h6fW+qCOdI8U9UU35gsVgBRA2w9BunvXoYU1SvROPZ2v9n2hOfrABd2M+Zj2QQQYroi9HVwVTwy6xkENuT/m6gtcBDBiyxwLkB8wMHKm0ztm4/vK+3V23nnTo52UGLi/b+xuV7zD7ZcMs0FLftVWiwtZc+wZuOTJHbKbjxbb3/fzkG31s2wKFevfAsHiO8kyNegB6LVEb3yck3KLVJrrIhnao5/OintFFLOvDWWPZYhpb1f08nh8tR8avAT4wKvDMSeP1oq+To/C7hFDm0wsB08jhZTJwL0u0xjzKbp1ArxikNuxhhdRj5LPWwWkIO+aTwGECchEQhEjQ6nfciFkDqpDI7TmdQodJnNDb0xWQ4K1HCK1UAKn1kND18a9/71zHrYG3UctmJ4Zc9Gyz9AyZetcUlhYPuzSXzjGNOpyIu6rBG0MuV0cy2i+/u1pKaMyYTwHATO5BKtKEVJJfaPrbqusfP03zgU3L7cNwPkTWU1Eme2+azb6kpCFi/3jzcrdST3XiYYBeDNp5e7uNL/gIVqpowa8h+Ch7rSIM8l0U0gIT913FadO5Mp2UhICtdEnDOpoBmtcXde2fuZguUkInzS+9fApni8zVEDVvxT80Ec6pBLlHMsMFYGGfC+0H91djHNK7a4OKxP3f1Q958+ns5G/i5PL3gBAa1g1bxAqLmROGIyktd85Yepk1NIpBGQdJsgEBVw4uIJIIYc/+mi/HUTUIMt4507UUjfJzWVxoMEbpDYabCWC8Dte/7oV07FhxNu04bUEDRKfjaqybUdOvvgn4k8UqnkB9eYnui/K1Q2M6P7yJM81AuxmvCQiUMnIl2ddK42I3Ori39SRwkUSurzbKBVwL1VqBL+znzddggL1euEHK5Ht86Fj976xeiLqegKXGmmNW+Y4fwf/rmtm4wSuUaRNNjcx+5IjKFdnTnDIr+GfyHMjB4Kw6RRx36yyIX4AMtjnaaxMRYICc5cv4BeWvrsrPmsyYS7Erufv9CX1jCxDwj4bhqAfcgQzPnLEn7WNEpjdFz4vgN6fvfO03knQ34et87+Pbza5KkU83Oz3L6YslQY4poUKlx0beNjm3dWVybccGgwYaUOltaeddbH2QuF1+ylae0e7kl5ojjxWHfbQO0xElf78yl3JqIFZqDG+GM/g6ITFcBeWQTwjLcKsK+GuBmKfa364sjj83KJz214dNRkuBbl13wQI7cQctVJuAKVDw4Y8Ga+FxKjB+pozcpXflTQK3HHJ1t7Ppi0Q15ulYeYXmbEYjE1+ewFzLaLP0CR8EG5yoSxEeB1z/C/mRKU0qzO+kZfEqk7fzPTQxurwMTnUF0zl5TY8HQ54/peaxf2FhzGqzPRSjbPWaWHum0RqIUexq9FcfHlBc6uXCK8+Zi4ks56iqJ+hSn1Cp1WwpxOYrrpqIifASQZbb0AE8RJh+Lz9p80XRn7lNesF4HABiqmm2L3YvvMeAwgrqVRflKoWA8Jwobt64LWfRO7FJAk71dIJgxIvvyaJqdCmaeGsJzX9S7DBeSfe0leyGYVS1ZImUj6rz14BUP5svCsNUPIaN128K9H6klXtD+Y9ZrDYiyartIO6zgErlLi2wrZIBx1UgMtVRMhCftRRYIRTN8FzHmiDQtgNS0aYpXBHz5kNg59Wi+QeuSCQ9HHlKfXWk5VxnKTU1nCZncBeql/HbkY7wZlynEEOIFGoLMu7Dngk0Lm+jr9OU4NeyvMfZyDSQsDaKu+65RQ4iCvo5+AJjzeOgump78d/UY+QBulVySbebs255g8JqfQuh7Vm9n3BX2tzCBLph9yhdgAKRrJddK0wCcAiZs1q1iAxWcC4hBRj5J/EufmshTYgKKpVQWFIY96yxoNQadnQiHAXQ4D9epoGswFuhWIMiKFE3nucb5JtENr2ouyBJL7gPOpsZmNv1iswk3xps3sx2x8sSgUDtQxiLnWH60Dy0u1MPUz1d568b1QNDnSMvedSTvh8pxij6RCHNgch2MfXqC0espAdMG1fRPViNyD8LIsVpy09xiOIQLjfIXx9NHyV+0QU/cUSrtWItSlfWyDcqk83dmMJA63kTNcCXlB/G9U0nraEvWdADMOwf/gOZNTQxuLB49ZDbAud2HTBVI0uwdx7jWapcMVHyHSyQCZV+zK1ykqdZFHLg+VpyjbtQsYfUvRKnd1GyX5VDNo3hESqRAg7FU7JyuNwZg5WQ26xcQWCx8xzfutgC6JOf31D2JKRXj/lm5y6fL/BLJrum2nss4v0nc8lA4WENvJjkv+anY1eXhgiDkj+YKx7XaCPI7I/61oY3FVX2wS86wAD2lstimRM2OaGwyMWZc2AjZg9sGbHsO9DROu+x8WtV8OZRUIRGE53YCVlj9KsnBUIzlsTJyIuphgKejciGo9j65NMpCs4U+Ue/CCetMSqtUJ6Jiz3y02YA8WGZLiyJSuZyp6RV1zr+j3+1D+EHq0UXpX/jfOrqy/y9zmRGD0pW9IZvKA3WRNnlUGpR5G4Gw3eSeVHjnxLO78tt41jlEOfbW8u6yanrRR9O8awj85hlYutQF+P+Tlh0rRFPwuwf4Nk4MXRjnM8g3hWmW5Rr03oeIivY/xeRtqntdTn9W1OeUZ3vOLlio44N6pCZm22e/y19kWHe4DawiB2leJ85JoxA27/vkTp+R356pKY/Q5ls1YXSOQWJL1FHKIWOrISMU9WZb0bgI2ArBSbA80OwFHLlXXNWRzZP0XELiLBY/ie+FmclYbovOss9sY7qWGpmwR4u4PTOJ6QnZzGW5Fd1AKo8JZCwMEk3G6udGEHCjV9HsLxrjqEtNxAHCGx3SsqmD6Z5CPCj5dx0NDbMm4Gq0iFD4zfKvcnmOgvlF/nxWJiRKF6+TwmiTG8zmPghUsslROEGD754psY91tyz1xf7BuvS12kMUGSCCTEzrR1q/esu6EKUFLI1HgLag1v3DqyH4q0YD+ZhrHlipbpg9TYwy/Bk27+Ms6hj87OMC/GZVfKYw957L4o8J1Kb2+L2gzZBCM9sY8Be2WfOOhVWn0lrE0+JNaRZy1tJW1DuNi/Tm7H7KfUQaLHXWlXLwoeBIha5Emyw/jM+2UynXmeTqnGhEQz1HwDzvQSZXNkHgn99zoOhpagGd0X9bS7D7RYIJYkcO93tHRJWTgpuNRP9rpqAzJI8/+8+VTa/rMK+8UDzgCEULObsCp7DlQL9w6AG2Tu/OUH83fIcq9sW4LcC7swNYCY8kDV5TiICyNyt1BtCYPb9cnIKhudrfuXuS27nBPDG83DEwTUA9NdCA5WPJQOHswBx6BSkTF9/aSPbQ0/ilOyKDivORC7tao9AXT3rhJPkjumH3dFPT7/4y9FCjTQMJue1r2HvhlrsIg6gPxsgnVUTJosZUycbabI1r6gE5xIvBgceHlmcQDHDimoViXWRZq2HdL0Z2ewcR9LzL5F0t4iHUUNF1qx0wtVZgiqJNaiO5q4PeRDvXOGWpHIkAQXPuIAoyp4FRhLztJgKW/XOZUODAR9XKFo94dVQZja6aCpQpnGseDHEqnZCnCeRvVyaqu0I6A4wXzaZXDDzEYDvkS7u/zZ1yFEqWCdBTzLEIEMG5zF5qchuOaugCu3EMpyErxa9fgs8hTceqn1kj+WuO80CBXacawwIH9IwJ/09zly+UWCcEU/T6MKPC4lV0Uaw8XY7wq6CVTM2aRad76sUJaUjNnrY/tYeixlHynwsPJ8tnJGvdevaOz6l7CgLyZ64xykyEQug4j+m/zbfFIivuC2GYPhFL5Q87jNE8lEw3J9omWfqHJFw4JTf5lEalhJBnXoVrvI45aCx2bZcDcl2/3jRDDY5ESIGq615CVFsClWJD2w3wwT1rI1phUnwjvEKW3ELQ7JlWCneNgeWUuCaFK8SVp4K4/W8A+GXuvFJNTCb1EeBcWEKgpTSODo5KVD4OmBc50cRLlqSRCBCu5tMgD69TwWNpggL7zq9ZN4kwh64NOfsf4IT/TGW7xQFCDj2Y6sSm1kEHNnNqPSI63o1yjj6lNS/9KcYw/ahLvxrVsG/SGSvdhxL931qIFf/fyQu1hLFiiwi/Gn6brOyht2TLL5hznEpHlZLnAgyrQPODPjAcfWdTFGNIJwg4ubAecH6SgXBBBiCpQDm",iter:310000};
 let DATA=null,LIVE=null,liveOk=false,lastSig='',tab='team';
 let selHale=null,selNpc=null;
 const BLOBS={};
@@ -215,8 +266,184 @@ function startLive(){
   if(!DATA.api||!DATA.token)return;
   pollBase();
   setInterval(()=>{if(!document.hidden)pollBase()},10000);
+  setInterval(()=>{if(!document.hidden&&tab==='npcs'&&DATA.squads)pollSquads()},15000);
 }
-function pick(t){tab=t;selHale=null;selNpc=null;render();if(t==='base'||t==='npcs')pollBase()}
+function pick(t){tab=t;selHale=null;selNpc=null;render();
+  if(t==='base'||t==='npcs')pollBase();
+  if(t==='npcs'&&DATA.squads)pollSquads()}
+/* ---- squads ----
+   A squad is a formation of your own NPCs that marches as one party and holds
+   a village. Entirely live: there is nothing to bake, because where a squad is
+   standing changes by the minute. */
+let SQ=null,sqErr='';
+async function pollSquads(){
+  try{SQ=await api('/api/team/squads');sqErr=''}
+  catch(e){sqErr=e.message}
+  if(tab==='squads')render();
+}
+async function sqCall(path,body){
+  try{
+    const j=await api(path,body);
+    if(j&&j.squads)SQ=j;else await pollSquads();
+    sqErr='';
+  }catch(e){sqErr=e.message}
+  render();
+}
+function whenText(t){
+  const s=Math.max(0,Math.round(t-(Date.now()/1000)));
+  if(s<60)return s+'s';
+  if(s<3600)return Math.round(s/60)+' min';
+  if(s<86400)return Math.round(s/360)/10+' h';
+  return Math.round(s/8640)/10+' days';
+}
+function roleOptions(sel){
+  return ['<option value="">— role —</option>']
+    .concat((SQ.roles||[]).map(r=>`<option value="${esc(r.name)}"${
+      r.name===sel?' selected':''}>${esc(r.name)}</option>`)).join('');
+}
+function squadCard(s){
+  const rows=(s.members||[]).map(m=>`<tr data-npc="${esc(m.key)}">
+    <td><b>${esc(m.name)}</b>${m.job?'<div class="muted fsm">'+esc(m.job)+'</div>':''}</td>
+    <td><select class="sq-role">${roleOptions(m.role)}</select></td>
+    <td class="muted">${m.hp?esc(m.hp)+' HP':''}</td>
+    <td><button class="linkbtn sq-drop">remove</button></td></tr>`).join('')
+    ||'<tr><td colspan="4" class="muted">Nobody posted to this squad yet.</td></tr>';
+  const free=(SQ.unassigned||[]).map(n=>
+    `<option value="${esc(n.key)}">${esc(n.name)}${n.job?' — '+esc(n.job):''}</option>`).join('');
+  let status,controls;
+  if(s.trip){
+    const t=s.trip;
+    status=t.state==='queued'
+      ? `<span class="sqtag queued">leaves in ${whenText(t.depart)}</span>
+         marching to <b>${esc(placeName(t.to))}</b>`
+      : `<span class="sqtag walking">on the road</span>
+         to <b>${esc(placeName(t.to))}</b> — arrives in ${whenText(t.arrive)}`;
+    controls=`<p class="hint">They're already moving. Wait for them to arrive
+      before you give a new order.</p>`;
+  }else{
+    const at=(s.members||[]).map(m=>m.place).filter((v,i,a)=>a.indexOf(v)===i);
+    const here=at.length===1?(at[0]?placeName(at[0]):SQ.home_name):
+               at.length?'scattered':'—';
+    status=`<span class="sqtag home">holding</span> <b>${esc(here)}</b>`;
+    controls=`<div class="sqsend">
+      <select class="sq-dest">${(SQ.places||[]).map(p=>
+        `<option value="${esc(p.key)}">${esc(p.name)}${
+          p.minutes!=null?' — '+Math.round(p.minutes/60)+'h from base':''}</option>`).join('')}</select>
+      <select class="sq-when">
+        <option value="0">Send now</option>
+        <option value="1">Send in 1 hour</option>
+        <option value="6">Send in 6 hours</option>
+        <option value="12">Send in 12 hours</option>
+        <option value="24">Send tomorrow</option>
+      </select>
+      <button class="gbtn sq-go">Send</button>
+      <button class="linkbtn sq-home">recall to base</button></div>`;
+  }
+  return `<div class="pcard squad" data-sq="${esc(s.id)}">
+    <h2>${esc(s.name)} <button class="linkbtn sq-kill">disband</button></h2>
+    <div class="pmeta">${status}</div>
+    <table class="sqtab"><tbody>${rows}</tbody></table>
+    <div class="sqadd">
+      <select class="sq-new">${free||'<option value="">everyone is posted</option>'}</select>
+      <button class="linkbtn sq-add">post to squad</button></div>
+    ${controls}</div>`;
+}
+function placeName(k){
+  const p=(SQ&&SQ.places||[]).find(x=>x.key===k);
+  return p?p.name:k;
+}
+function wireSquad(el){
+  const sid=el.dataset.sq;
+  const q=(s)=>el.querySelector(s);
+  el.querySelectorAll('tr[data-npc]').forEach(tr=>{
+    const npc=tr.dataset.npc;
+    const sel=tr.querySelector('.sq-role');
+    if(sel)sel.onchange=()=>sqCall('/api/team/squad',
+      {action:'role',id:sid,npc:npc,role:sel.value,player:sqWho()});
+    const drop=tr.querySelector('.sq-drop');
+    if(drop)drop.onclick=()=>sqCall('/api/team/squad',
+      {action:'remove',id:sid,npc:npc,player:sqWho()});
+  });
+  if(q('.sq-add'))q('.sq-add').onclick=()=>{
+    const v=q('.sq-new').value;
+    if(v)sqCall('/api/team/squad',{action:'add',id:sid,npc:v,player:sqWho()});
+  };
+  if(q('.sq-kill'))q('.sq-kill').onclick=()=>{
+    if(confirm('Disband this squad? The NPCs stay where they are.'))
+      sqCall('/api/team/squad',{action:'disband',id:sid,player:sqWho()});
+  };
+  if(q('.sq-go'))q('.sq-go').onclick=()=>{
+    const hrs=Number(q('.sq-when').value||0);
+    sqCall('/api/team/squad-send',{id:sid,place:q('.sq-dest').value,
+      depart:hrs?(Date.now()/1000+hrs*3600):0,player:sqWho()});
+  };
+  if(q('.sq-home'))q('.sq-home').onclick=()=>
+    sqCall('/api/team/squad-send',{id:sid,recall:true,player:sqWho()});
+}
+function sqWho(){
+  const el=document.getElementById('sq-who');
+  const v=el?el.value.trim():'';
+  if(v)try{localStorage.setItem('tht-who',v)}catch(e){}
+  return v;
+}
+function savedWho(){
+  try{return localStorage.getItem('tht-who')||''}catch(e){return ''}
+}
+/* The muster lives inside the NPCs tab — squads are a way of arranging the
+   same people the tab already lists, so splitting them across two tabs made
+   you hold the roster in your head. Returns HTML; wireSquads attaches it. */
+function squadsBlock(){
+  if(!(DATA.squads&&DATA.api&&DATA.token))return'';
+  if(!SQ)return`<div class="muster"><h2>Squads</h2><p class="muted">`
+    +(sqErr?esc(sqErr):'Reading the muster roll…')+`</p></div>`;
+  const cards=(SQ.squads||[]).map(squadCard).join('')
+    ||'<p class="muted">No squads yet. Name one below and start posting people to it.</p>';
+  return `<div class="muster">
+    <h2>Squads</h2>
+    <p class="muted">A squad marches as one party and holds the village it
+    arrives at — while they're standing there, that place is yours. Home is
+    <b>${esc(SQ.home_name||'base')}</b>.</p>
+    <label class="whorow">Your player name
+      <input id="sq-who" type="text" value="${esc(savedWho())}"
+             placeholder="so the log knows who gave the order"></label>
+    ${sqErr?'<div class="err">'+esc(sqErr)+'</div>':''}
+    ${cards}
+    <div class="pcard"><h2>Form a squad</h2>
+      <label>Name<input id="sq-name" type="text" placeholder="e.g. The Salt Line"></label>
+      <button class="gbtn" id="sq-make">Form it</button></div>
+    <div class="pcard"><h2>Write a squad role</h2>
+      <p class="muted">Roles are yours to invent. Save one and it's in every
+      squad's dropdown from then on; the devs are told so they can give it
+      teeth.</p>
+      <label>Role name<input id="ro-name" type="text" placeholder="e.g. Reef Scout"></label>
+      <label>What do they do?<textarea id="ro-desc" rows="2"></textarea></label>
+      <button class="gbtn" id="ro-make">Save the role</button>
+      ${(SQ.roles||[]).length?'<p class="hint">So far: '+(SQ.roles||[])
+        .map(r=>esc(r.name)).join(', ')+'.</p>':''}</div></div>`;
+}
+function wireSquads(m){
+  if(!(DATA.squads&&SQ))return;
+  m.querySelectorAll('.squad').forEach(wireSquad);
+  const mk=m.querySelector('#sq-make');
+  if(mk)mk.onclick=()=>{
+    const n=(document.getElementById('sq-name')||{}).value||'';
+    if(n.trim())sqCall('/api/team/squad',
+      {action:'create',name:n,player:sqWho()});
+  };
+  const ro=m.querySelector('#ro-make');
+  if(ro)ro.onclick=async()=>{
+    const n=(document.getElementById('ro-name')||{}).value||'';
+    if(!n.trim())return;
+    try{
+      const j=await api('/api/team/role-add',{name:n,
+        desc:(document.getElementById('ro-desc')||{}).value||'',
+        player:sqWho()});
+      if(SQ)SQ.roles=j.roles||SQ.roles;
+      sqErr='';
+    }catch(e){sqErr=e.message}
+    render();
+  };
+}
 /* ---- base map geometry (ring fallback = the bot's base_map_view math) ---- */
 function haleXY(h,i,n,cv){
   if(typeof h.x==='number'&&typeof h.y==='number')return{x:h.x,y:h.y};
@@ -236,6 +463,15 @@ function wirePortrait(el,c){
 }
 function npcCard(c,withMove){
   const routine=(c.routine||[]).map(r=>'<li>'+esc(r)+'</li>').join('');
+  // Health and what they can do. The bot sends ability NAMES and damage only —
+  // never how to beat them (threat notes and kill notes stay dev-side).
+  const abil=(c.abilities||[]).map(a=>
+    '<li><b>'+esc(a.name)+'</b>'+(a.damage?' <span class="dmg">'+esc(a.damage)+'</span>':'')
+    +(a.desc?'<br><span class="muted">'+esc(a.desc)+'</span>':'')+'</li>').join('');
+  const vitals=(c.hp||abil)?`<div class="vitals">
+    ${c.hp?'<div class="hp"><span class="k">Health</span><b>'+c.hp+'</b></div>':''}
+    ${abil?'<div class="abils"><span class="k">Abilities</span><ul>'+abil+'</ul></div>':''}
+    </div>`:'';
   const move=(withMove&&liveOk)?`
     <div class="moverow"><select class="mv-house">${(theBase().houses||[])
       .map(h=>'<option '+(h.name===c.post?'selected':'')+'>'+esc(h.name)+'</option>').join('')}</select>
@@ -248,7 +484,25 @@ function npcCard(c,withMove){
       <div><h2>${esc(c.name)}</h2>
         <div class="pmeta">${(c.titles||[]).length?esc(c.titles.join(', '))+' · ':''}${esc(c.affiliation||'')}</div>
         <div class="pmeta">Post: <b>${esc(c.post||'—')}</b>${c.function?' <span class="muted">('+esc(c.function)+')</span>':''}</div>
+        ${c.away?'<div class="pmeta"><span class="sqtag walking">away</span>'+esc(c.away)+'</div>':''}
+        ${c.squad?'<div class="pmeta muted">🛡️ '+esc(c.squad)+(c.squad_role?' · '+esc(c.squad_role):'')+'</div>':''}
       </div></div>
+    ${(liveOk&&c.forge&&['rare','legendary','special'].indexOf(c.forge.rarity)>=0)?`
+    <div class="facerow">
+      <label class="facelab">Their face
+        <input type="file" class="fc-file" accept="image/png,image/jpeg,image/gif,image/webp">
+      </label>
+      <button class="gbtn fc-go">Upload</button>
+      <div class="fc-msg muted"></div>
+      <p class="hint">A ${esc(c.forge.rarity)} card chooses its own face — upload
+      a picture or a gif (10MB max). Common and Uncommon are given one from the
+      pool instead.</p>
+    </div>`:''}
+    ${c.forge&&c.forge.owner?'<div class="pmeta forgeline">🜲 forged by <b>'
+      +esc(c.forge.owner)+'</b>'+(c.forge.rarity?' · '+esc(c.forge.rarity):'')
+      +(c.forge.job?' · '+esc(c.forge.job):'')+'</div>':''}
+    ${c.blurb?'<div class="npcblurb">'+esc(c.blurb)+'</div>':''}
+    ${vitals}
     ${c.task?'<div class="taskline"><span class="k">Current task</span>'+esc(c.task)+'</div>':''}
     ${routine?'<div class="routine"><span class="k">Routine</span><ul>'+routine+'</ul></div>':''}
     ${(!c.task&&!routine)?'<p class="muted fsm">No task or routine on record yet.</p>':''}
@@ -256,6 +510,33 @@ function npcCard(c,withMove){
 }
 function wireNpcCard(root,c){
   wirePortrait(root.querySelector('.portrait'),c);
+  const fgo=root.querySelector('.fc-go');
+  if(fgo)fgo.onclick=async()=>{
+    const inp=root.querySelector('.fc-file'), msg=root.querySelector('.fc-msg');
+    const f=inp&&inp.files&&inp.files[0];
+    if(!f){msg.textContent='Pick a file first.';return}
+    if(f.size>10*1024*1024){msg.textContent='That file is over 10MB.';return}
+    fgo.disabled=true;fgo.textContent='Uploading…';msg.textContent='';
+    try{
+      // Read as base64 — the team API speaks JSON, and a data URL keeps the
+      // bytes intact through it without a multipart parser on either side.
+      const b64=await new Promise((res,rej)=>{
+        const r=new FileReader();
+        r.onload=()=>res(String(r.result).split(',')[1]||'');
+        r.onerror=()=>rej(new Error('could not read that file'));
+        r.readAsDataURL(f);
+      });
+      await api('/api/team/npc-portrait',
+        {npc:c.key,filename:f.name,content_type:f.type,data:b64});
+      msg.className='fc-msg ok';
+      msg.textContent='Uploaded — their face is set.';
+      BLOBS[c.key]=undefined;           // drop the cached old portrait
+      lastSig='';await pollBase();
+    }catch(e){
+      msg.className='fc-msg err';msg.textContent=e.message;
+    }
+    fgo.disabled=false;fgo.textContent='Upload';
+  };
   const go=root.querySelector('.mv-go');
   if(go)go.onclick=async()=>{
     const house=root.querySelector('.mv-house').value;
@@ -342,15 +623,17 @@ function render(){
   }else if(tab==='npcs'){
     const b=theBase();
     const cards=b?Object.values(b.npcs||{}).sort((a,c)=>a.name.localeCompare(c.name)):[];
-    if(!cards.length){
-      m.innerHTML='<h1>NPCs</h1><p class="muted">No NPCs stationed at your base — yet.</p>';return}
-    m.innerHTML=`<h1>NPCs <span class="fsm muted">— stationed at ${esc(b.name)}</span>${liveTag()}</h1>
-      <div class="npcgrid">${cards.map(c=>npcCard(c,false)).join('')}</div>`;
+    const roster=cards.length
+      ? `<h2>Everyone at ${esc(b.name)}</h2>
+         <div class="npcgrid">${cards.map(c=>npcCard(c,false)).join('')}</div>`
+      : '<p class="muted">No NPCs stationed at your base — yet.</p>';
+    m.innerHTML=`<h1>NPCs${liveTag()}</h1>${squadsBlock()}${roster}`;
+    wireSquads(m);
     m.querySelectorAll('.npcprof').forEach(el=>{
       const c=(b.npcs||{})[el.dataset.npc];
       if(c){wireNpcCard(el,c);
         el.style.cursor='pointer';
-        el.onclick=e=>{if(e.target.closest('.mv-go,.mv-house,a'))return;
+        el.onclick=e=>{if(e.target.closest('.mv-go,.mv-house,.facerow,a'))return;
           tab='base';selNpc=c.key;selHale=null;render();
           document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('on',x.dataset.t==='base'))};
       }});
@@ -398,10 +681,20 @@ function forgeForm(){
     return big?`<label>${p}<textarea id="f-${f}" rows="3"></textarea></label>`
               :`<label>${p}<input id="f-${f}" type="text"></label>`;
   }).join('');
+  // Rare and above choose their own face, so the picture rides WITH the
+  // submission — it used to be handed to a dev out of band, which is why so
+  // many forged NPCs ended up wearing a pool face they never picked.
   const face=(F.portrait||[]).indexOf(r)>=0
-    ? `<p class="muted">This card lets you choose their face — hand the picture
-       to a dev when they approve.</p>`
+    ? `<div class="facerow"><label class="facelab">Their face — a picture or a gif
+         <input type="file" id="f-face" class="fc-file"
+                accept="image/png,image/jpeg,image/gif,image/webp">
+       </label>
+       <p class="hint">Optional, 10MB max. Send one and it's theirs the moment a
+       dev approves the card; skip it and they're given one from the pool.</p></div>`
     : `<p class="muted">The card picks their face from the pool.</p>`;
+  const pend=(F.pending_jobs||[]).length
+    ? `<p class="hint">Waiting on a dev: ${(F.pending_jobs||[])
+        .map(j=>esc(j.title)).join(', ')}.</p>` : '';
   return `<div class="pcard"><h2>Forge an NPC</h2>
     <p class="muted">${esc((F.blurb||{})[r]||'')}</p>
     <label>Which card are you spending?
@@ -410,10 +703,47 @@ function forgeForm(){
           `<option value="${x}"${x===r?' selected':''}>${x}</option>`).join('')}
       </select></label>
     <label>Your player name<input id="f-player" type="text"
-      placeholder="so the dev knows whose card to take"></label>
+      placeholder="so the NPC knows who their creator is"></label>
     ${rows}${face}
     <button id="f-send" onclick="forgeSend()">Send to the devs</button>
-    <div class="err" id="f-err"></div></div>`;
+    <div class="err" id="f-err"></div></div>
+    <div class="pcard"><h2>Write a new job</h2>
+    <p class="muted">Nothing on the list fits? Write the post yourself. A dev
+    decides which card rarity may hire it and how many can exist, and once
+    they've ruled it's in the dropdown for good.</p>
+    <label>Job title<input id="j-title" type="text"
+      placeholder="e.g. Reef Warden"></label>
+    <label>What does the job actually do?<textarea id="j-desc" rows="3"
+      placeholder="A sentence or two — enough for a dev to tier it fairly."></textarea></label>
+    <label>Your player name<input id="j-player" type="text"></label>
+    <button id="j-send" onclick="jobSend()">Propose it</button>
+    <div class="err" id="j-err"></div>${pend}</div>`;
+}
+async function fileB64(el){
+  const f=el&&el.files&&el.files[0];
+  if(!f)return null;
+  if(f.size>10*1024*1024)throw new Error('That picture is over 10MB.');
+  const b64=await new Promise((res,rej)=>{
+    const r=new FileReader();
+    r.onload=()=>res(String(r.result).split(',')[1]||'');
+    r.onerror=()=>rej(new Error('could not read that file'));
+    r.readAsDataURL(f);
+  });
+  return {data:b64,filename:f.name,content_type:f.type};
+}
+async function jobSend(){
+  const err=document.getElementById('j-err'), btn=document.getElementById('j-send');
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    await api('/api/team/job-propose',{
+      title:(document.getElementById('j-title')||{}).value||'',
+      description:(document.getElementById('j-desc')||{}).value||'',
+      player:(document.getElementById('j-player')||{}).value||''});
+    err.className='ok';
+    err.textContent='Sent. A dev will tier it, and then it joins the list.';
+    ['j-title','j-desc'].forEach(i=>{const e=document.getElementById(i);if(e)e.value=''});
+  }catch(e){err.className='err';err.textContent=e.message}
+  btn.disabled=false;btn.textContent='Propose it';
 }
 async function forgeSend(){
   const F=DATA.forge||{}, r=forgeRarity();
@@ -427,6 +757,11 @@ async function forgeSend(){
   const btn=document.getElementById('f-send');
   if(btn){btn.disabled=true;btn.textContent='Sending…';}
   try{
+    if(body.portrait){
+      const pic=await fileB64(document.getElementById('f-face'));
+      if(pic){body.image=pic.data;body.filename=pic.filename;
+              body.content_type=pic.content_type}
+    }
     await api('/api/team/forge-submit',body);
     err.className='ok';
     err.textContent='Sent. A dev will confirm your card and make them real.';
