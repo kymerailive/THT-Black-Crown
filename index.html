@@ -142,7 +142,8 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
 .fc-msg.err{color:#e79a9a}
 
 /* ---- forming a squad from the muster ---- */
-.mkrow{margin-top:16px}
+.mkrow{margin:0 0 20px;padding:12px;border-radius:12px;background:#0d1420;
+  border:1px solid #1e2c40}
 .mkrow input{padding:8px 11px;border-radius:9px;background:#0d1420;
   border:1px solid #24344b;color:#e8eef7;font:inherit;font-size:13px;
   margin-right:8px;min-width:200px}
@@ -226,7 +227,7 @@ font-weight:800;cursor:pointer;font:inherit;box-shadow:0 4px 14px rgba(124,92,25
   <div id="main"></div>
 </div>
 <script>
-const ENC={salt:"uZhKzYEKos2rWyUaDKlHAw==",iv:"DbRJdmCGv6d26SXY",ct:"ULKVEBLRoeCFIDcCSq+a73OKYhM8CBm8bhdd1k7QBS6CreB68t7QxI6t6fiDtFeaEez8kZZo+e8YY/PFuxADW+sOMox4XkBlxcNe9anckaWXN4Wu6xThMsWCUcns4M5LjA5WxD5lESFgklXZY33mGGiohMgIsBoz2Zerbxe17jCe3wJZeDwekcQINHTSdbZIDhVYv8S+EpmFn1R9qYBFKkFUPLvF/XJw1oWos9dgxFPE7/pMvdwMdfcDOSNsEuWFZRUVxMsdffvRPeWRWvTjBYInIOLUjno+ptJiX0wh1WADhTSVj76J5H/O74tAord1cpChB2FjnTv0IhdukBkBSh3BA6WW/JQq2VRH5bzTOqQV1avGTirdcgIrB1wEy1XU8PLcPBAHNTKtgKEM/Bcjd93pIu1k3JvJzp5xOO7+tiUtVDcG6ZHSqUgiKvaBFKWhUUV3VGPqx8ltQ76BvPRwvrFEphjNcFKpuYB14X75R5M5oDFUQRXo6EYhjLGHdmkPMZTp+Ty/MU7F5TUlbrWyA2tqf1ZYPQrEe04tS16uBUYN2IkNKwjYehHmNmtLi86X3CRTU9/Z2TxMrvPDn0MjYE98W+W1SokFp3iq5x+ZndPeUnGLfWdqD9LK8ue1ZgOFaCCLWUr857A0O6JVXoYCAUFDwaje7hOjz5bkGNT3BeHj80iOFblHfhYh/O4304vwOs9CQF2reKDCLtG4qKIZLev7GIvkmPK9Jurib6JI8QwKQHjUrDSUZVKQwoaq4Smhh6Sti+im4t66ISUOTjNs3l1xNnvcnQP9UH8Os7COf4RhWqwe/K9OpqHf8NIACBDHnvVymbvhtYdEEaTfzuvzVOgqAfb0CDzfK3ZK9RCaYx9ubeXrlLuu2qSE79IWk6FIC50965U6xj4sdsHbcJbbKVc1alOPOP/I/4SCqZpUIeW94iAHiuvEp2fQ42U7SMHfS7VQFFlfHCGEFCF7WE0nl6wVLDLF3AYMp8KNUFdoUiUq2UeiL9TRN4i1ZFuZBjy+vMwrMyXduGbRalECIreZHCiJVf7UDF/RP1etfD/rl+xf63Fxg1o5BPrJYSGGxGUr5Mtfwx4KmhHBO2+Mu2IICSQu9lFO/QMHl5vO4ijUlvv5Z00DMgTENgu13DzPiP307HEhMhLlVeQAeRt0VgDJ0PV3IIqirNoh4QH6q7wyoC0dEYS4AJEkBLOgEWdKWIuRpSid+AyiltJZ8nTfWqRgIkmDsk432HBTGiXLVciTNWBIN1DeneB8OQRrbTk1EnYkh79uKNXBlkBKfHaSqWR8QGkqju6m826DIIwAU9X3BwFS4oY9gkvjUMNVG0V3uGbw6txMn4RrELy2tzi/ZfRi8J9sa5dRAYH8qRH2T4LIcsd2nEUmDAfVf1s+4LOZJiGUAQ8AJciyb7VrY9doWwAXXWxYoDP6Ypah7r5/4hrkNa95WAC32ZWMra76aUUfp2UV4jyDsaObYWzl1EaDFGgY3LcDBh0ey3/1geNsUmI+fjeyMU/BVdYdyBAjNXNvecwSx0iUp/y+1Eep9GoQeyU2ClfXsOVc36wwNK2u7P5hTjzTNsl1SSh0+1F4O+a7ui9cCybT70mdTVOQiT4O7SY+fmxRdX7ekd8SYzKx8w6nPk2z371Y0c8Jrto41lODeWfacqhs0/sWPySaQa1gp1hDWgaU133Ys6l7C981Hnq44GPVQgAvymgaC5tHaYko7pf8x2RsRGzkV/wwfq3s6WBQUwkpBrkFePTaLpR+tN3dDim3ZbEsyw6daCRSAJJqK7HXKK4mr+QGuSUgNG4ELszXgo+9y+xUgNxRdopKzHbZg3y7FwV1vZCaZTRJWOfITaw871kEPznlIXBbffHrRKQ/h2qI1O009tn+RT/Uglo36Hmt907IjYY1t4kbkSVwZsSrd7LuulzPxaIWXLrM1Uc8RkHjXrEodcKdzFV1bZrMqdmV6FIsrj50lOM0EyonpsODV/4+a4SC8Bh4/AIQ6lD9nsYw3j/CKE4gltmSzzoeuOBhgLYljjy4NWanZq1VdevRb/rAoFjl1w2mr1WNenTLlSe7+c27ZhMWbOPl8Rq+H+0E0sc+1pkor6+wZN90WLKjJ/uOuTmkTrbLkCF83mzTN9fy2n8lO0LcnEBqxfE1MSovPWmZIL7ygcwrl+m/fm2rdKIVTwQD6sBaOH43VJYwCvOlSlSzLG9vnanQMl/EVzzPiQZSgMkseDI4ASgWXE4gAXpu/sLQZtap6do46AjyCXTWLOdBPpGtMQ01EamCHT4ImkBuHA21S+BCQQkBsXgNQgIkYcZ6DlUUSwh6E3474z/n9F+vgKujVJtWI2W13kxn88pTjXTlwXoGb9CBiiG8dQs+PfchYQ67k0EbJVSg5PY4GVhHE8kRDdxhSsgnFykFgfHVVFBn+1X4hXsCEm/OjJOEZHmDZcd2udPlERyec180zNOmHD9hd7m+7O7tW02LLZPfi6g+7hIlOUDwFZGmy1nJnJx0NXS4HjG2cNYX3Rs3P5wSJvjeDsvzlciL+az9JEN62YJpFQHj773r8oIEqSm00mE9C1ny3nySc+cKMecwm6wfcfGkUn8rALnfY43Jp9JXitGvIbmHTLf2bWmuRXniIQZUEwZ0ggHm0+W9//6RFtAfunMs/hb8a9P9j2geNqBZjM6YZ1qH7JMX7Gy2r7O6CAfuWkPfbkW/VG+GDiUXOVaswd/Cx8RL/mu5kQfAYmcGhyIp3+kVdEZeW3YziXbS0Ya9n/hu8GFowKj6jqjeljNq8B5BsANVhOz9RyhTXszY9WnLPeUhKvROqHDpifr4dmz5nwKASCbKnC7Bldd+LXUf2K94eovt1Jxnl43dj1RPcPI7+g0+MfNsJZpdLbvgegl6vUjKdG/aB1ue0Bfolm9tWtkZbUgp2IwKs0ppfSpGf55kbOirMX5feEbQwKu2ohddsoiopcYPk/TTK13gQqU0Ds55r04ZLcJphh0EZvEnifYQ/zJCLzLc7tVsFM7gtu0wH62YS7KcIbSvFxeQMHeUjcxhRQalWHyEC9FcLAvQ3jjVAqaTO/lQC5Vk9jszFrr9p7HvVLc8NDXPcCclAahFVNqDd0BO/mYwla1yKDdfzkdsYt7owU9Sw+tTM81O97xkcd1pABe7nKazxpVIpr98eA6dljoUiHY7YHGrUv7YdIBaQBgDSXB4ylgBM2+S0nQ1oK1UC5WkQcUNokVbRS7Ltg3Y40cPzrboz/S0iTYtbuvSYW8y9Y/ayW8RkQsd54pzPuExEETq33A6qzAgpsgSTETG8nGk4DuOr+FlRVYUdrSTDnUTaH6ZHiMrdHWpzIOdlSJNDttrbpHCNn0G4yRd07MRgVJJqxYAjcSwqvg7VRTfucgLhtr7NlSlW/QZiMYXoam8+VVrYQb17+QNJ4nhyPtlK68Ufr4c6XiLEcUiEsdIy+ljgxfWss/NlDin6xcogAnZOh3QjNis8VLEihdT+77oNwNNuJYD5wjurhA6Ugc3HiLdHy53fvY2UdcIn88zf9zytQXqHcRjlPG9OJK2NcITR6iNf+WRetKheU6dThKQoH7+K3G7RsoSXJ44VmWNKtMERUtpxzaY7I9ntXj4FH/0wfAU11CD1P4yjpBcWo/Djl7XIFLQYgOe0fAF98CuyJU9bLA8bQ4OsVmCRAy1Ds8c1wEhSo5NXukNb8sjB1BMbv1uFV5ieTcvfYD44TUrNwrNkFEHGt2iOW0+Bg9FMy5M/7J++/cWYpZL1yShOWX7Dm+ZM69aU3APBah3sJTnf2QiD3ON6ByYsYHP3EYV6e2PN1qeZl8qSj5u7maPchl76fojF1PjFLt5O6zi0Qf/EtnwJNpnWKos/FBVoApadq4S0ndWJhVhCZdVGMWoVUgRQm0Gbj6zrMvV860BiOGyLDu8sgbaexQSXJ/2rXCtf+4BvH9u7O0ZfGoDfJUZY1YzlmIQKcUcEbnluS3lqgUsAQs6hgLl+9nnTn3h2OTtYXmdM4lGzEPjy0jwVFkMxnjuVteht1s1mqze6Q0v360jeHH/76LdMZbXZooNjxNM4PrKlJUifz0/IWlwWjn2zBRQjriSLGoeTnV3LlrUqyE/s2CHzOkE9L//WefkU+B34MpU10OGsbIs9/tojDgWr+GyhEpUXfnJkjsD5ydik7A63XpHPdYnaMRIhut1cZcdyZFZ9ccy+Su2d1Lo34UsbUkT939VC7Ax9duTUe2D+rsMdJgD+YnW5E8MlZBUFS3jnSJi19K8e8amU10/G5UpU85YZKH6",iter:310000};
+const ENC={salt:"9izSlQVtQiNnWBWpzLweHA==",iv:"ZEwVonCPrEegJZQr",ct:"suhRi92QVIMoBSBEbw9ltnY2zkhWitO3mCNv13tl14wnoTsIL2e/3tCY3V808q/Gnxi9a3TwHL+Tm6sFuVKv8rYVy8pSQoFuoOAO2GgfxyDbm0L7OF7dzVPD5a472it2KU0wpLBLG+ksB3Blyv1dulRZcR7fEnuijrPrxntksjqyR1kS/BKs6QUNv8aH3AL/3Z7YmIwEEmEF7hl8IySLW/f8fS/cgKvJcV6NejBwdwTlmkYe6MfhDa0VRLOFLpn2eekjEbNMarTekDtW5rVMIhZvii6VachBXrFCfQpgcI8AG0QYQVWHzfS+9Q5sGgzSHxc6KS8so6gVVhJJuDsQ/ArxqKdWc6I1jG9PV9V/wYbFE6+WTqKNogx2ETlDWnPN4YKLA42w3AtUMQcaqmbHtwHUmFVQTOZQAws9ld5DMHVsckQYZMuAvzjqBtiibWbDJkRZsiKydxEvIATD6sbMEIIG8WM6i6ZM4JBGO8VH/fRXbvO7ghsMS/XU2jk16NbvwObuMt+HJTxNLjp1EKuDAZ/IQagLu3hRLPQtg3QhoaFxVBNpJT6QkOZEoRpqK9Nqwr1z6XvEZ0WTIIJD1oYdaSddkRmAzU/MNA2kdAjTrgFRjGxh49YPhoPWFZ3DVZERh/763q9/oD9sFlu2YSljezc23nDujH7983eVpdaVR/h0PexBeIXKEJKlz8VU9AQEzMngvAo7wKgS9F6XnyGE4HcGb1rs/Bgyxho4JgbR4el5r9CQfkNkN6Qe29wmQuJgDdLK5NiE+nZrUDSYWgBp/TwRu2xEh7fy0/25A5Tb2sUrOfVZbxJSP4jBpAUieDhYMGoHeHi52AhobCSbyCiUwVmP1FZ4XUfaR7Tqb4L4a5Ol+ueJmnUcyr7Q/TdRT+iFYf3tQZgqe+4ka8c0zA37PxtynRzWLWf/T1ctIDNX0K5UjwzATMt3eCHz4uryERNGiRvnHHoMb0Gf6dMCxIB/OJA9QgDZ7x4Gr2Z+YfMg27v6apvBWPm3Fq5ef00wpKcsiatqHHdcE9EnDMFboBcY7Qzouf+8t3jpVTRLpV1cEzprRJgO/3DDBaU5ei0CYioQduzklhYglbZbywp2nNQy/FcheODWkQwJjFtbdJKl6K9FLqWc1qmfPUKN3XY5lojulGi0IWKPVqPuMsDLRYaMPy+RImTTJVFqkRD7X0fUH9ptkRnoT7NMRGoBDhe/vbf/hMtS3+L7KqWFYsGmtDl343dLJvUC21WFObFunw04aBFsqlW7eRDzUisHERBIUQLjY5TpIGTQTE8QQuyyEyuIOMa1umahEf96pAaGKlDsZPoW1y01y1vBR7vkCvu5o0cW0iMPMwfB7oqGngnQ/zCkV4X1QdwwSFRJTaSNd67KdBlGvcRr7FMAK+fW8Ud6MaLCvgZaskQHhcoCGJYQWQ7lTd4SCM9EgP6haeihbVVj2/nMkXpqZ9b4fA9BIa1yU5+Q/Dvpopb3/Gh4lKSoT58eZkvdkhz0JDIQa5atTS1SA82hsJhH0+mV64W5XtI3t7mWhZoCVP/o1k7y4YjomDI1G4R9Ht0gyMNZzzruQzpLfDe7SkZrkvF6si6oXBzecXSQmkCTPyxLixWO0W9jgRiOl7PC1xl2wDWuSH2LgZNq9EdJ5d0PfzxLbfX0rXYc2UuLV0Az4P3IBKg1TlcrowoITbwPDAqTcPofGhvLFmn1VIy66/H8+xnHOSf40KoWjWhKbFhtLlhusjeXZztuD/Xzm68ISaz+kdAWm27/m76vXQFW7+7rF72oDAu5qpI+ZeSTwqBtgs1JDDSzwX3sbhrQIs/zCqY40tKoaFaMA3jgTa10QMMAHy/sJiRjb/sg0AkkC8a63rnoWy3sKROJEmBXap0EhdgwWmao43mT7g4plGjM9CM96GifEWM8VL6dosDqWZ85qdywJFT06Mz9tHPxp2KDXe/I9Lucf/xx5cdSOfQpaXkF25n/NA+yIWAhstzGlq45u/U/Xq5oODHGeOGGhRw+QubJ78Qw/oossKCGkJeWIFMrUgHMJKePEwPu9LeTjw7UXKM7Lx5/sZ+7wG8GfwbXflNV7C/FizSZTEtnT8UTYaruDS6f8L3N3L53vXNFZa3Ev3/lfgs/H6OVvWl7w6WyxwZth6/1xu5r0GLNPwVa7K1htmTc1OVCCljlKPz4PX+cSuGcZdFv5XBSbscA1YFlUbJ/ayKb9JWKWbajRzOXpw4n7FXkyEfDXrcdhSii519oBXBOQLkeg7ATcnriUuGGr+VT9e5uXMqlCdzqOcReTvgXRDhbLQlwjb8Ub4d+VGaKNLAfFeSu5u7F6LKZo64eCcj3+I0RTvQR0lGG2LRYiBXSXpz5t075Cy0PkZ1bmU+8K9bL1O1leikit+laA+/20GxtoC01r0VG04ya4p7+N+fHU/kNAuJPoXVAmsOrUNkr1u9m5+6/YZJClgcBU/exo6zHuVjlC3SVBFykCbCaItEaMTo4EINUwQPvYDd4klvadDzvm39mWGOPyZry3hP9lxLGa3Lyr8J0ploINdCuj2OfW/rutFgmirELDqxrND6Eqkimk9vEquDaZ0LBTd6tVDhwMPzz8kWUlHysAIYHURBvi18pSyoahxerH1d14RqndP+9LdtI5MdwsXrbW6uMo2AkABvM/N4mJWC8ajVPpV6gdgPm/okzFY2U//GYHFVJE0uFVEGJqMSbZgGcM8KiNX069O6iW0MynNkXOGuX0QFgXwLdZEGHvu55MGdqdeak6DeG6d7bNlVZ7hD2O5skel4wqR58nMSTxbKxLYh1G3FEHp26J1h7T30ZyYb3GNkf8tzoDTY564HNdu2Wj87Z18G6/Us3j/p3z8r4rfIo04ALSge1YUdSb2bIrVowzU8cFCa/DTowoZsQR6uJ4Aie4byaAnFt2dIxRC1HEyDR+yI9tzQVxY1XA1zRHvYh4Rs5a1b9QRiAYMlDTXUx0yWNc3ai/ir28+iLozTAtat1evHCK5LI9VWgzf7SGE6Ss7gxx1btlmZWlkQCkz2Bpuq/LNDLbwUQFII883ikIrb7PylM2aBArv4qL9t3SLF3BQMHTQC3IadsBfdDZU4QFJfnJ6i/KzdxJERPqS3/gpDzhadO0aSjcNNu6cZ2uYkH99I+gVQcpuEIOx+ulep0oZ9wz9SSEFsPx5cB1x1/Rcla3Ai5APkFZWrd1qMNAhKO333sfWa5sHgcmlHHzeddKmn+jkIrQ+no8VdLq8Wl0wdQma0NXDdRODyEuvif0vaet2HHzxNct31/OaMc6yrumFvHb3waBPv6RlchB2Ddl0ITVENG+Ny5wVXyL0bN7K/NS0clJgR20/pturmzDbPrwmi0trcptbnWNDiagwfgJo9QRY6hTgWu4DqTn2YYfBYtkwZs1R/wNhotjtieRklkPRvrZanlbDIAAozOenC9kQpHDgDhbkYw9r4q9bJnAr9iywwMRq2qv2m9OYUlwiLX825qyEk7R0Kh+giRXAiVPYxhm3bO4aF8WYTqCfzD5Q1CtVkPef4g2KhYoKiQ2i2tZvRXA/mzZRlot7T/Qz9Ij1AwwsdKy35p3+syLVOZZI/Dn1dRfq8zGaWioVOiJ/dOcT8zXAz9fKdNdIARrxSByE06KrrOUBXvGeoyqiGy5z+yFUMoAmjGrWk4/ZNiPsAx2uVoPMipeZ9QDnbE8UvX30xIeBzSBCwP9fLHGz5cS6blXUZxmPhj4UtHQsmenR83Zp4AJy/fjp6xcJYojzNnjcIqxg35KPWSNhXTeD2JHqZoI8xbv5k17VXmQ3xTbc82xFKcWnJOMvxZJmhIO0/7AOuKlT6rRYZ2W7kX3zGzLShW5CbcOG5r2ruDtSDYm7T81BWvZY5yPGZ9fvSbt5ePn62n/aJroUh+/QM8WcXuJ4ZEsUBnprA8o+JXcd+LeZkd1R2W6zr+VAgj5r5EIVB+aZn5UdsDr3gaynW6aNn1/5t4wV2td6mJlrbKvRj1cjg7iMtaC7+IFRrkyMNbM1/AgPXae3/RgC5WJWvYeeSTEDvjheRoPtcAbT6Vt9GCiEb5NrHGK3c6pdjhE67LtmBJCBSqKTu+IGkGfFbX6NhFasoaxsfN4oW9Jnb1QGgZ52ds7QbuSXKZX9kfEafX/5m0ofhPrkmdQQGkJBc392gE2kIFkoU+9qYQn9y41jrcDNb/HTCzSV8h4n+tP3YtzEejoi4BDlBSqATnBiD/RDHUfYusYvj4I/lrHTm6r2kMFu6y/SvBNfaXXioz/RkzkGqCvGLJkoMTNDs9Y8CF",iter:310000};
 let DATA=null,LIVE=null,liveOk=false,lastSig='',tab='team';
 let selHale=null,selNpc=null;
 const BLOBS={};
@@ -535,7 +536,7 @@ function squadsBlock(){
   if(!SQ)return`<div class="muster"><h2>Squads</h2><p class="muted">`
     +(sqErr?esc(sqErr):'Reading the muster roll…')+`</p></div>`;
   const cards=(SQ.squads||[]).map(squadCard).join('')
-    ||`<p class="muted">No squads yet. Form one below, then post people to it —
+    ||`<p class="muted">No squads yet. Name one above, then post people to it —
        or pick <b>+ New squad…</b> straight from any NPC's Posting dropdown,
        which does both at once.</p>`;
   return `<div class="muster">
@@ -546,35 +547,26 @@ function squadsBlock(){
     <label class="whorow">Your player name
       <input id="sq-who" type="text" value="${esc(savedWho())}"
              placeholder="so the log knows who gave the order"></label>
-    ${sqErr?'<div class="err">'+esc(sqErr)+'</div>':''}
-    ${cards}
     <div class="mkrow">
-      <button class="linkbtn" id="sq-open">+ Form a squad</button>
-      <span id="sq-mk" style="display:none">
-        <input id="sq-name" type="text" placeholder="e.g. The Salt Line">
-        <button class="gbtn" id="sq-make">Form it</button>
-        <button class="linkbtn" id="sq-cancel">cancel</button>
-      </span>
-      <p class="hint">An empty squad is fine — post people to it from its own
-      list, or from any NPC's Posting dropdown.</p>
-    </div></div>`;
+      <input id="sq-name" type="text" placeholder="Name a new squad — e.g. The Salt Line">
+      <button class="gbtn" id="sq-make">Form a squad</button>
+      <p class="hint">An empty squad is fine. Post people to it from its own
+      list below, or from any NPC's Posting dropdown.</p>
+    </div>
+    ${sqErr?'<div class="err">'+esc(sqErr)+'</div>':''}
+    ${cards}</div>`;
 }
 function wireSquads(m){
   if(!(DATA.squads&&SQ))return;
   m.querySelectorAll('.squad').forEach(wireSquad);
-  const open=m.querySelector('#sq-open'), box=m.querySelector('#sq-mk');
-  if(open)open.onclick=()=>{
-    box.style.display='';open.style.display='none';
-    m.querySelector('#sq-name').focus();
+  const name=m.querySelector('#sq-name'), make=m.querySelector('#sq-make');
+  const form=()=>{
+    const n=(name||{}).value||'';
+    if(!n.trim()){sqErr='Name the squad first.';render();return}
+    sqCall('/api/team/squad',{action:'create',name:n,player:sqWho()});
   };
-  const cancel=m.querySelector('#sq-cancel');
-  if(cancel)cancel.onclick=()=>{box.style.display='none';open.style.display=''};
-  const make=m.querySelector('#sq-make');
-  if(make)make.onclick=()=>{
-    const n=(m.querySelector('#sq-name')||{}).value||'';
-    if(n.trim())sqCall('/api/team/squad',
-      {action:'create',name:n,player:sqWho()});
-  };
+  if(make)make.onclick=form;
+  if(name)name.addEventListener('keydown',e=>{if(e.key==='Enter')form()});
 }
 /* ---- base map geometry (ring fallback = the bot's base_map_view math) ---- */
 function haleXY(h,i,n,cv){
